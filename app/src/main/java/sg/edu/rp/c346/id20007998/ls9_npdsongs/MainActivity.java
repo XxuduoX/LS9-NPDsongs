@@ -67,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Insert successful",
                             Toast.LENGTH_SHORT).show();
                 }
+                edTitle.setText("");
+                edYear.setText("");
+                edSingers.setText("");
+                rg1.isChecked();
             }
         });
         btnShowList.setOnClickListener(new View.OnClickListener() {
@@ -79,4 +83,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }
