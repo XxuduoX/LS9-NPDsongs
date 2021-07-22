@@ -18,7 +18,7 @@ public class ListViewActivity extends AppCompatActivity {
     Button btnFilter;
     ListView lv;
     ArrayList<Song> songList;
-    ArrayAdapter<Song> aa;
+    CustomAdapter ca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +28,14 @@ public class ListViewActivity extends AppCompatActivity {
         lv=findViewById(R.id.lv);
 
         songList=new ArrayList<Song>();
-        aa = new ArrayAdapter<Song>(this,android.R.layout.simple_list_item_1, songList);
-        lv.setAdapter(aa);
+        ca = new CustomAdapter(this, R.layout.row, songList);
+        lv.setAdapter(ca);
 
         DBHelper dbh = new DBHelper(ListViewActivity.this);
 
         songList.clear();
         songList.addAll(dbh.getAllSong());
-        aa.notifyDataSetChanged();
+        ca.notifyDataSetChanged();
         
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,7 +56,7 @@ public class ListViewActivity extends AppCompatActivity {
                 DBHelper dbh = new DBHelper(ListViewActivity.this);
                 songList.clear();
                 songList.addAll(dbh.getSongByFilter());
-                aa.notifyDataSetChanged();
+                ca.notifyDataSetChanged();
 
             }
         });
@@ -71,6 +71,6 @@ public class ListViewActivity extends AppCompatActivity {
         DBHelper dbh = new DBHelper(ListViewActivity.this);
         songList.clear();
         songList.addAll(dbh.getAllSong());
-        aa.notifyDataSetChanged();
+        ca.notifyDataSetChanged();
     }
 }

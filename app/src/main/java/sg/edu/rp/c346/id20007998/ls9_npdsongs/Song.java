@@ -58,7 +58,7 @@ public class Song implements Serializable {
 
 
 
-    @Override
+    /*@Override
     public String toString() {
         String statement="";
         if(stars==1){
@@ -74,5 +74,5 @@ public class Song implements Serializable {
         }
         return statement;
 
-    }
+    }*/
 }
